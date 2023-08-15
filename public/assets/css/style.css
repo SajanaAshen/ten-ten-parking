@@ -11926,13 +11926,15 @@ body, html {
 
 .hero-text {
   text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-	width: 80%;
-  transform: translate(-50%, -50%);
+	width: 100%;
   color: white;
-	background-color: rgba(0, 0, 0, 0.8);;
-	padding-left: 50px;
-	padding-right: 50px;
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+.get-a-quote{
+	padding: 40px;
+}
+
+.text-primary{
+	color: #080A52 !important;
 }

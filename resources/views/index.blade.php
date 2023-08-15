@@ -3,111 +3,122 @@
 @section('content')
 
 <div class="hero-image" >
-    <div class="hero-text">
-        <div class="container1">
-            <form action="{{ route('basic-details') }}" method="post">
-                @csrf
-                <div class="get-a-quote">
-                <div class="row ">
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="">Airport:</label>
-                            <input type="text" disabled value="Heathow" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="">Vehicle Drop Off Date:</label>
-                            <input value="{{ session('basic_details.drop_off_date') ?? old('drop_off_date') }}" type="date"
-                                id="datepicker" name="drop_off_date"
-                                class="form-control datepicker @error('drop_off_date') is-invalid @enderror">
-                            @error('drop_off_date')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <div class="hero-text">
+                <div class="container">
+                    <form action="{{ route('basic-details') }}" method="post">
+                        @csrf
+                        <div class="get-a-quote">
+                        <div class="row ">
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="">Airport:</label>
+                                    <input type="text" disabled value="Heathow" class="form-control">
                                 </div>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="">Drop Off Time:</label>
-                            <div class="row">
-                                <div class="col-6">
-                                    <select name="drop_off_time_H" class="form-control" id="">
-                                        @for ($i = 0; $i < 24; $i++)
-                                        <option @if((session('basic_details.drop_off_time_H') ?? old('drop_off_time_H')) == $i) selected @endif>{{ $i }}</option>
-                                        @endfor
-                                    </select>
-                                    @error('drop_off_time_H')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="">Vehicle Drop Off Date:</label>
+                                    <input value="{{ session('basic_details.drop_off_date') ?? old('drop_off_date') }}" type="date"
+                                        id="datepicker" name="drop_off_date"
+                                        class="form-control datepicker @error('drop_off_date') is-invalid @enderror">
+                                    @error('drop_off_date')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
                                     @enderror
                                 </div>
-                                <div class="col-6">
-                                    <select name="drop_off_time_M" class="form-control" id="">
-                                        @for ($i = 0; $i <= 55; $i+=5)
-                                        <option @if((session('basic_details.drop_off_time_M') ?? old('drop_off_time_M')) == $i) selected @endif>{{ $i }}</option>
-                                        @endfor
-                                    </select>
-                                    @error('drop_off_time_M')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="">Drop Off Time:</label>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <select name="drop_off_time_H" class="form-control" id="">
+                                                @for ($i = 0; $i < 24; $i++)
+                                                <option @if((session('basic_details.drop_off_time_H') ?? old('drop_off_time_H')) == $i) selected @endif>{{ $i }}</option>
+                                                @endfor
+                                            </select>
+                                            @error('drop_off_time_H')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
+                                        </div>
+                                        <div class="col-6">
+                                            <select name="drop_off_time_M" class="form-control" id="">
+                                                @for ($i = 0; $i <= 55; $i+=5)
+                                                <option @if((session('basic_details.drop_off_time_M') ?? old('drop_off_time_M')) == $i) selected @endif>{{ $i }}</option>
+                                                @endfor
+                                            </select>
+                                            @error('drop_off_time_M')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
+                                        </div>
+                                    </div> 
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="">Vehicle Pick Up Date:</label>
+                                    <input type="date" value="{{ session('basic_details.pick_up_date') ?? old('pick_up_date') }}"
+                                        name="pick_up_date" class="form-control @error('pick_up_date') is-invalid @enderror">
+                                    @error('pick_up_date')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
                                     @enderror
                                 </div>
-                            </div> 
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="">Pick Up Time:</label>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <select name="pick_up_time_H" class="form-control" id="">
+                                                @for ($i = 0; $i < 24; $i++)
+                                                <option @if((session('basic_details.pick_up_time_H') ?? old('pick_up_time_H')) == $i) selected @endif>{{ $i }}</option>
+                                                @endfor
+                                            </select>
+                                            @error('pick_up_time_H')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
+                                        </div>
+                                        <div class="col-6">
+                                            <select name="pick_up_time_M" class="form-control" id="">
+                                                @for ($i = 0; $i <= 55; $i+=5)
+                                                <option @if((session('basic_details.pick_up_time_M') ?? old('pick_up_time_M')) == $i) selected @endif>{{ $i }}</option>
+                                                @endfor
+                                            </select>
+                                            @error('pick_up_time_M')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
+                                        </div>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4"><button class="btn btn-lg form-control btn-light text-primary mt-4">GET A QUOTE</button></div>
+                            <div class="col-md-4"></div>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="">Vehicle Pick Up Date:</label>
-                            <input type="date" value="{{ session('basic_details.pick_up_date') ?? old('pick_up_date') }}"
-                                name="pick_up_date" class="form-control @error('pick_up_date') is-invalid @enderror">
-                            @error('pick_up_date')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="">Pick Up Time:</label>
-                            <div class="row">
-                                <div class="col-6">
-                                    <select name="pick_up_time_H" class="form-control" id="">
-                                        @for ($i = 0; $i < 24; $i++)
-                                        <option @if((session('basic_details.pick_up_time_H') ?? old('pick_up_time_H')) == $i) selected @endif>{{ $i }}</option>
-                                        @endfor
-                                    </select>
-                                    @error('pick_up_time_H')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
-                                </div>
-                                <div class="col-6">
-                                    <select name="pick_up_time_M" class="form-control" id="">
-                                        @for ($i = 0; $i <= 55; $i+=5)
-                                        <option @if((session('basic_details.pick_up_time_M') ?? old('pick_up_time_M')) == $i) selected @endif>{{ $i }}</option>
-                                        @endfor
-                                    </select>
-                                    @error('pick_up_time_M')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
-                                </div>
-                            </div> 
-                        </div>
-                    </div>
+                    </form>
                 </div>
-                <center><button class="btn btn-primary mt-4">GET A QUOTE</button></center>
             </div>
-            </form>
         </div>
+        <div class="col-md-1"></div>
     </div>
+   
   </div>
   
     <!-- banner-section end -->
